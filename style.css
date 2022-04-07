@@ -1,0 +1,31 @@
+
+body {
+    width: 960px;
+    margin: auto;
+}
+
+hr {
+    width: 80%;
+    margin-right: 9em;
+  
+}
+
+
+h2 {
+    /* text-align: center;
+    display: inline-block; */
+    align-content: ;
+}
+
+#bandDivs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bandPanel {
+    height: 200px;
+    width: 22%;
+    padding-top: 25px;
+    text-align: center;
+    border: 1px gray solid;
+}
