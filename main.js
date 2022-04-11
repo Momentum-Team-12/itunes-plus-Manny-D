@@ -1,6 +1,8 @@
 console.log("Testing")
 
-fetch ('https://itunes.apple.com/search?term=nsyc', {
+// fetch - https://itunes.apple.com/search?term=nsync
+
+fetch ('https://itunes.apple.com/search?term=nsync', {
     method: 'GET',
     headers: {},
 })
@@ -9,33 +11,8 @@ fetch ('https://itunes.apple.com/search?term=nsyc', {
     })
     .then (function (data) {  // data is what's retuned in line 8
         console.log('The response is', data.results)
-
-        // for (let i of data.results) {
-        //     console.log(i.trackname)
-
-        // //test - add band/artist thumbnail
-        // let imgDiv = document.querySelector('#imgDiv')
-        // let bandImage = document.createElement('img')
-        // bandImage.classList.add('thumbnail')
-        // imgDiv.appendChild(bandImage)
-        // bandImage.src = `${results.artworkUrl100}`
-        // imgDiv.appendChild(bandImage)
-
-
-
-        // //test - Pulling Data - working (found StackO for data pull)
-        // let nameDiv = document.querySelector('#tDiv')
-        // let bandName = document.createElement('p')
-        // bandName.classList.add('aName')
-        // nameDiv.appendChild(bandName)
-        // bandName.innerText = `Artist: ${results.artistName}`
-        // nameDiv.appendChild(bandName)
-
-        //Test - for search bar
-        const searchContainer = document.querySelector('#search')
-
-
-        const mainContainer = document.querySelector('#bandDivs')  
+        // Test - Band Info Div - working
+        const mainContainer = document.querySelector('#mainDiv')  
 
         let results = data.results.slice(1)
             for (let result of results) {
@@ -62,3 +39,22 @@ fetch ('https://itunes.apple.com/search?term=nsyc', {
         }
 
     })
+
+// Search Form
+
+// let messageDiv = document.querySelector('#message')
+
+let form = document.querySelector('#search-form')
+console.log(`This is my search form: ${form}`)
+
+form.addEventListener('submit', 
+                      function(event) {
+  console.log(`This is the form submit event: ${event}`)
+let guest = document.querySelector('#search-input')
+console.log(guest.value)
+
+// let message = document.createElement('p')
+// let text = document.createTextNode(`${guest.value}, You have signed up for the party!`)
+// message.appendChild(text)
+// messageDiv.appendChild(message)
+})

@@ -5,22 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="main.js" defer></script>
-  <title>Music Search</title>
+  <title>Music Search Project</title>
 </head>
 <body>
   <h1>Project: Music Search</h1>
   <audio controls>
-    <source src="horse.ogg" type="audio/ogg">
     <source src="horse.mp3" type="audio/mpeg">
   </audio>
 </br>
 </br>
-<hr>
-  <div id="search"></div>
-<hr>
-
+<!-- <hr> -->
+  <div class="search"></div>
+    <form id="search-form" action="https://itunes.apple.com/search?" method="GET"> 
+      <!-- <label for="search">Search for Artist</label> -->
+      <input type="text" name="search-input" id="search-input" placeholder="Search for Artist"></input>
+      <label for="-input"></label>
+    <button type="submit" >Search</button>
+    </form>
+<!-- <hr> -->
+</br>
+</br>
   <!-- <div id="imgDiv"></div>
   <div id="tDiv"></div> -->
-  <div id="bandDivs"></div>
+  <div id="mainDiv"></div>
 </body>
 </html>

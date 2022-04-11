@@ -2,30 +2,39 @@
 body {
     width: 960px;
     margin: auto;
-}
+    text-align: center;
+}    
 
-hr {
+/* hr {
     width: 80%;
     margin-right: 9em;
-  
-}
+} */
 
 
 h2 {
-    /* text-align: center;
-    display: inline-block; */
-    align-content: ;
+    display: inline-block; 
+    /* align-content: ; */
 }
 
-#bandDivs {
+form {
+    /* width: 900px;  */
+}
+
+input {
+    width: 35%;
+}
+
+#mainDiv {
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .bandPanel {
-    height: 200px;
+    /* height: 220px; */
     width: 22%;
-    padding-top: 25px;
+    /* margin-left: 25px; */
+    padding: 20px 8px 5px 8px;
     text-align: center;
     border: 1px gray solid;
 }
