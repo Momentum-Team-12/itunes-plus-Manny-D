@@ -1,14 +1,15 @@
 
 body {
-    width: 960px;
+    width: 1000px;
     margin: auto;
     text-align: center;
+    background-color: cadetblue;
 }    
 
-/* hr {
+hr {
     width: 80%;
     margin-right: 9em;
-} */
+}
 
 
 h2 {
@@ -32,9 +33,14 @@ input {
 
 .bandPanel {
     /* height: 220px; */
-    width: 22%;
+    width: 30%;
     /* margin-left: 25px; */
     padding: 20px 8px 5px 8px;
     text-align: center;
     border: 1px gray solid;
+}
+
+audio {
+    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+    width: 40%;
 }
