@@ -6,11 +6,18 @@ body {
     background-color: cadetblue;
 }    
 
+cursor {
+    cursor: pointer;
+}
+
+#player {
+    text-align: center;
+}
+
 hr {
     width: 80%;
     margin-right: 9em;
 }
-
 
 h2 {
     display: inline-block; 
@@ -40,7 +47,7 @@ input {
     border: 1px gray solid;
 }
 
-audio {
-    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+/* not needed unless I use previous js code
+/* audio {
     width: 40%;
-}
+} */
