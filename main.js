@@ -53,6 +53,9 @@ fetch (`https://proxy-itunes-api.glitch.me/search?term=${uInput.value}&media=mus
                 a.title = `${result.trackName}`
                 a.href = `${result.previewUrl}`
                 bandDiv.appendChild(a)
+                let clickMe = document.createElement('p')
+                clickMe.innerText = "Click above title to hear a preview!"
+                bandDiv.appendChild(clickMe)
 
                 // Working player in each div
                 // let playAudio = document.createElement("audio");
@@ -67,19 +70,63 @@ fetch (`https://proxy-itunes-api.glitch.me/search?term=${uInput.value}&media=mus
                 // Test for top Audio player / working but needs to clear on new
                 const topPlayer = document.querySelector("#player")
                 a.addEventListener("click", function () {
-                let player = document.createElement('audio')
-                player.controls = true
-                player.src = result.previewUrl
-                let trackName = document.createElement('p') 
-                trackName.innerText = `Now Playing: ${result.trackName}`
-                topPlayer.appendChild(player)
-                topPlayer.appendChild(trackName)
+                    if (topPlayer.innerHTML === "") {
+                        let player = document.createElement('audio')
+                        player.controls = true
+                        player.src = result.previewUrl
+                        // player.prop('preload','none')
+                        let trackName = document.createElement('p') 
+                        trackName.innerText = `Now Playing: ${result.trackName}`
+                        topPlayer.appendChild(player)
+                        topPlayer.appendChild(trackName)
+                    } else {
+                        if (topPlayer.innerHTML !== "" && form !== "") {
+                        topPlayer.innerHTML = ""
+                        let player = document.createElement('audio')
+                        player.controls = true
+                        player.src = result.previewUrl
+                        // player.prop('preload','none')
+                        let trackName = document.createElement('p') 
+                        trackName.innerText = `Now Playing: ${result.trackName}`
+                        topPlayer.appendChild(player)
+                        topPlayer.appendChild(trackName)
+                        form = ""
+                    }
+                }
             })
         }
     })
 })
 
-// Test - clear for next search
 
-// document.querySelector("search").addEventListener('click', event) 
+// Test for Clear button 
+let clear = document.querySelector("#search-input");
+
+// function clearButton () {
+// clear.addEventListener("click" , (event) => {
+// let form = document.querySelector('#search-form');
+// form.value = "";
+// let topPlayer = document.querySelector("#player")
+// topPlayer.innerHTML = "";
+// let mainContainer = document.querySelector('#mainDiv') 
+// mainContainer.innerHTML = "";
+// })
+// }
+// clearButton ()
+
+
+
+// Thought for clearing/reset for next search
+// document.querySelector("topPlayer").addEventListener('click', 'submit')
+    // if (topplayer !== "") {
+    // reset() {
+    // } 
+// document.querySelector("mainDiv").addEventListener('click', 'submit') 
+    // if (mainDiv !== "") {
+    // reset()
+    // }
+
 // document.querySelector("search").innerHTML = '';
+
+// 4/12/22 thought while debugging with class
+
