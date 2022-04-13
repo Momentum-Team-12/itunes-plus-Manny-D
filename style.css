@@ -11,43 +11,30 @@ cursor {
 }
 
 #player {
-    text-align: center;
 }
 
 hr {
-    width: 80%;
+    width: 75%;
     margin-right: 9em;
 }
 
-h2 {
-    display: inline-block; 
-    /* align-content: ; */
-}
-
-form {
-    /* width: 900px;  */
-}
-
 input {
+    text-align: center;
     width: 35%;
+}
+
+::placeholder {
+    text-align: center;
+    font-weight: 500;
 }
 
 #mainDiv {
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .bandPanel {
-    /* height: 220px; */
     width: 30%;
-    /* margin-left: 25px; */
     padding: 20px 8px 5px 8px;
-    text-align: center;
     border: 1px gray solid;
 }
-
-/* not needed unless I use previous js code
-/* audio {
-    width: 40%;
-} */
