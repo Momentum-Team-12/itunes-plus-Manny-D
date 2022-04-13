@@ -7,12 +7,12 @@ form.addEventListener('submit', function(event) {
 event.preventDefault()
 
 // Reloads / refreshes mainDiv 
-function adios (parent) {
+function adiosMD (parent) {
     while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
     }
 }
-adios(mainDiv)
+adiosMD(mainDiv)
 
 
 let uInput = document.querySelector('#search-input')
@@ -22,11 +22,18 @@ fetch (`https://proxy-itunes-api.glitch.me/search?term=${uInput.value}&media=mus
     method: 'GET',
     headers: {},
 })
-    .then(function(response) {  // response: what you got from code above 
+    .then(function(response) {  // Response: what you got from code above 
         return response.json()
     })
-    .then (function (data) {  // data is what's retuned in line 27
+    .then (function (data) {  // Data is what's retuned in line 26
         // console.log('The response is', data.results)
+
+            if (data.results) {
+                if (data.results.length === 0){
+                    console.log('No Results Found') // For 'error' logging
+                    return 
+                }
+                
 
         // Band Info Div - working
         const mainContainer = document.querySelector('#mainDiv')  
@@ -65,11 +72,9 @@ fetch (`https://proxy-itunes-api.glitch.me/search?term=${uInput.value}&media=mus
 
                 // Test for top Audio player / gross but working and clears
                 const topPlayer = document.querySelector("#player")
+                // document.getElementById("player").style.height = "190px";
                 a.addEventListener("click", function () {
                     if (topPlayer.innerHTML === "") {
-                        let imgThumb = document.createElement('img')  
-                        imgThumb.classList.add('bImg')
-                        imgThumb.src = result.artworkUrl100 
                         let player = document.createElement('audio')
                         player.controls = true
                         // player.controlsList= "nodownload"
@@ -78,16 +83,13 @@ fetch (`https://proxy-itunes-api.glitch.me/search?term=${uInput.value}&media=mus
                         // player.prop('preload','none')
                         let trackName = document.createElement('p') 
                         trackName.innerText = `Now Listening to: ${result.trackName}`
-                        topPlayer.appendChild(imgThumb)
+                        // topPlayer.appendChild(imgThumb)
                         topPlayer.appendChild(player)
                         topPlayer.appendChild(trackName)
                     } else {
                         if (topPlayer.innerHTML !== "") {
                         topPlayer.innerHTML = ""
                         uInput.value = "" 
-                        let imgThumb = document.createElement('img')  
-                        imgThumb.classList.add('bImg')
-                        imgThumb.src = result.artworkUrl100 
                         let player = document.createElement('audio')
                         player.controls = true
                         // player.controlsList= "nodownload"
@@ -96,12 +98,15 @@ fetch (`https://proxy-itunes-api.glitch.me/search?term=${uInput.value}&media=mus
                         // player.prop('preload','none')
                         let trackName = document.createElement('p') 
                         trackName.innerText = `Now Listening to: ${result.trackName}`
-                        topPlayer.appendChild(imgThumb)
+                        // topPlayer.appendChild(imgThumb)
                         topPlayer.appendChild(player)
                         topPlayer.appendChild(trackName)
                     } 
+                
                 }
             })
         }
+            }
     })
+
 })

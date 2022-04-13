@@ -1,6 +1,6 @@
 
 body {
-    width: 1000px;
+    width: 960px;
     margin: auto;
     text-align: center;
     background-color: cadetblue;
@@ -10,12 +10,8 @@ cursor {
     cursor: pointer;
 }
 
-#player {
-}
-
 hr {
-    width: 75%;
-    margin-right: 9em;
+    width: 80%;
 }
 
 input {
@@ -34,7 +30,7 @@ input {
 }
 
 .bandPanel {
-    width: 30%;
+    width: 31.33%;
     padding: 20px 8px 5px 8px;
     border: 1px gray solid;
 }
