@@ -1,4 +1,4 @@
-console.log("Connected");
+console.log("-Database Online-");
 
 // Search Form
 let form = document.querySelector("#search-form");
@@ -6,6 +6,9 @@ let form = document.querySelector("#search-form");
 // Seach buton - to Line 111
 form.addEventListener("submit", function (event) {
 event.preventDefault();
+
+    var audio = new Audio("/Users/emmanueldador/Documents/Momentum/Projects/stTest/computerbeep_15.mp3");
+    audio.play("submit").loop;
 
 // Reloads / refreshes mainDiv
 function adiosMD(parent) {
@@ -40,7 +43,12 @@ fetch(
                 error.classList.add("error");
                 error.innerText = "Error Searching.. please try again.";
             mainDiv.appendChild(error);
-            return;
+            
+                // function play () {
+                    var audio = new Audio("/Users/emmanueldador/Documents/Momentum/Projects/stTest/alert09.mp3");
+                    audio.play();
+                // }
+                return;
         }
 
 
@@ -58,7 +66,7 @@ fetch(
                 let imgThumb = document.createElement("img");
                     imgThumb.classList.add("bImg");
                     imgThumb.src = result.artworkUrl100;
-                    bandDiv.appendChild(imgThumb);
+                bandDiv.appendChild(imgThumb);
 
                 let artName = document.createElement("p");
                     artName.classList.add("bName");
@@ -76,7 +84,7 @@ fetch(
                 bandDiv.appendChild(track);
 
                 let clickMe = document.createElement("p");
-                    clickMe.innerText = "Click title above to hear a sample.";
+                    clickMe.innerText = "(click song title to hear sample)";
                 bandDiv.appendChild(clickMe);
 
             mainContainer.appendChild(bandDiv);
@@ -89,7 +97,7 @@ fetch(
                         let player = document.createElement("audio");
                             player.controls = true;
                             player.src = result.previewUrl;
-                            player.play();
+                        player.play();
 
                         let trackName = document.createElement("p");
                             trackName.innerText = `Now Listening to: ${result.trackName}`;
@@ -116,9 +124,26 @@ fetch(
 const topPlayer = document.querySelector("#player")
 let uInput = document.querySelector("#search-input");
 const mainContainer = document.querySelector("#mainDiv")
+// let stImage = document.querySelector("#stPlayer")
 
 reset.addEventListener('click', () => {
     topPlayer.innerHTML = "";
     uInput.value = "";
-    mainContainer.innerHTML ="";
+    mainContainer.innerHTML = "";
+    let sfLogo = document.createElement("img");
+        sfLogo.src = "/Users/emmanueldador/Documents/Momentum/Projects/stTest/StarFleet.jpeg";
+        sfLogo.width = 400
+        topPlayer.appendChild(sfLogo);
+    let ncc = document.createElement("p");
+        ncc.classList.add("ncc");
+        ncc.innerText = "USS Momentum - NCC 27713";
+        topPlayer.appendChild(ncc);
+    var audio = new Audio("/Users/emmanueldador/Documents/Momentum/Projects/stTest/computerbeep_3.mp3");
+    audio.play();    
 })
+
+const library = document.querySelector("#sfLogo");
+    library.addEventListener("click", function () {
+    var audio = new Audio("/Users/emmanueldador/Documents/Momentum/Projects/stTest/accessinglibrarycomputerdata_clean.mp3");
+    audio.play().loop;
+    })
