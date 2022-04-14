@@ -1,5 +1,13 @@
 console.log("-Database Online-");
 
+// Computer sound when clicking on StarFleet Logo
+const library = document.querySelector("#sfLogo");
+    library.addEventListener("click", function () {
+    var audio = new Audio("/Users/emmanueldador/Documents/Momentum/Projects/stTest/accessinglibrarycomputerdata_clean.mp3");
+    audio.play().loop;
+    })
+
+
 // Search Form
 let form = document.querySelector("#search-form");
 
@@ -33,7 +41,7 @@ fetch(
         return response.json();
     })
     .then(function (data) {
-    // Data is what's retuned in line 30
+    // Data is what's retuned in line 41
     // console.log('The response is', data.results)
 
     if (data.results) {
@@ -44,11 +52,11 @@ fetch(
                 error.innerText = "Error Searching.. please try again.";
             mainDiv.appendChild(error);
             
-                // function play () {
-                    var audio = new Audio("/Users/emmanueldador/Documents/Momentum/Projects/stTest/alert09.mp3");
-                    audio.play();
-                // }
-                return;
+            // ST alert sound on error
+            var audio = new Audio("/Users/emmanueldador/Documents/Momentum/Projects/stTest/alert09.mp3");
+            audio.play();
+
+            return;
         }
 
 
@@ -104,17 +112,13 @@ fetch(
                         topPlayer.appendChild(player);
                         topPlayer.appendChild(trackName);
                     }
-                        if (topPlayer.innerHTML === "") {
-                        playIT();
-                        } else {
                         if (topPlayer.innerHTML !== "") {
                             topPlayer.innerHTML = "";
                             uInput.value = "";
                         playIT();
                         }
-                        }
                     });
-            }
+                    }
     }
     });
 });
@@ -124,7 +128,6 @@ fetch(
 const topPlayer = document.querySelector("#player")
 let uInput = document.querySelector("#search-input");
 const mainContainer = document.querySelector("#mainDiv")
-// let stImage = document.querySelector("#stPlayer")
 
 reset.addEventListener('click', () => {
     topPlayer.innerHTML = "";
@@ -141,9 +144,3 @@ reset.addEventListener('click', () => {
     var audio = new Audio("/Users/emmanueldador/Documents/Momentum/Projects/stTest/computerbeep_3.mp3");
     audio.play();    
 })
-
-const library = document.querySelector("#sfLogo");
-    library.addEventListener("click", function () {
-    var audio = new Audio("/Users/emmanueldador/Documents/Momentum/Projects/stTest/accessinglibrarycomputerdata_clean.mp3");
-    audio.play().loop;
-    })
